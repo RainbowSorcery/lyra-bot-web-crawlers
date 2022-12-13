@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"lyra-bot-web-crawlers/pkg/setting"
+	"lyra-bot-web-crawlers/routers"
 	"net/http"
 )
 
@@ -14,12 +14,8 @@ func Init() {
 func main() {
 	Init()
 
-	router := gin.Default()
-	router.GET("/test", func(context *gin.Context) {
-		context.JSON(200, gin.H{
-			"message": "test",
-		})
-	})
+	router := routers.InitRouter()
+
 	s := &http.Server{
 		Addr:           fmt.Sprintf(":%d", setting.HTTPPort),
 		Handler:        router,
