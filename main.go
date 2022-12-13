@@ -7,7 +7,13 @@ import (
 	"net/http"
 )
 
+func Init() {
+	setting.Init()
+}
+
 func main() {
+	Init()
+
 	router := gin.Default()
 	router.GET("/test", func(context *gin.Context) {
 		context.JSON(200, gin.H{
@@ -20,5 +26,8 @@ func main() {
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	s.ListenAndServe()
+	err := s.ListenAndServe()
+	if err != nil {
+		return
+	}
 }
