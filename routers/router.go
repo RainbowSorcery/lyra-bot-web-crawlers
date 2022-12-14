@@ -17,6 +17,7 @@ func InitRouter() *gin.Engine {
 	PonyAPI := engine.Group("/randomImage/pony")
 	{
 		PonyAPI.GET("/randomLyraImg", api.RandomLyraImage)
+		PonyAPI.GET("/randomBackgroundPonyImage", api.RandomBackgroundPonyImage)
 	}
 
 	return engine

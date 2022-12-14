@@ -6,9 +6,10 @@ import (
 )
 
 var (
-	Cfg      *ini.File
-	RunMode  string
-	HTTPPort int
+	Cfg           *ini.File
+	RunMode       string
+	HTTPPort      int
+	DerpibooruURL string
 )
 
 func Init() {
@@ -20,6 +21,7 @@ func Init() {
 
 	LoadBase()
 	LoadServer()
+	loadURLCfg()
 }
 
 func LoadBase() {
@@ -28,4 +30,8 @@ func LoadBase() {
 
 func LoadServer() {
 	HTTPPort = Cfg.Section("server").Key("http_port").MustInt()
+}
+
+func loadURLCfg() {
+	DerpibooruURL = Cfg.Section("pony").Key("derpibooruURL").MustString("")
 }
