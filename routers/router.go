@@ -26,7 +26,7 @@ func InitRouter() *gin.Engine {
 		PonyAPI.GET("/RandomPinkiePieImage", api.RandomPinkiePieImage)
 		PonyAPI.GET("/RandomFlutterShyPieImage", api.RandomFlutterShyPieImage)
 		PonyAPI.GET("/RandomAppleJackPieImage", api.RandomAppleJackPieImage)
-		PonyAPI.GET("/RandomLunaPieImage", api.RandomLunaImage)
+		PonyAPI.GET("/RandomLunaImage", api.RandomLunaImage)
 		PonyAPI.GET("/GetRandomPonyImageToTag", api.GetRandomPonyImageToTag)
 	}
 
